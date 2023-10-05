@@ -1,9 +1,26 @@
+// Write your algorithm here
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  // create an object to keep track of numbers we've already seen
+    const seenNumbers = {};
+    // iterate through each number in the array
+    for (let i = 0; i < array.length; i++) {
+    // for the current num, identify a complement that adds to the target (comp = target - num)
+      const complement = target - array[i];
+    // check if any key on our object is the complement
+    // if so return true
+    if (complement in seenNumbers) return true
+    // otherwise, add that number to the object
+    seenNumbers[array[i]] = true;    
+    }
+    //if I reach the end of the array, return false
+    return false
 }
 
 /* 
   Write the Big O time complexity of your function here
+  n steps in the loop
+   
+  runtime complexity: O(n)
 */
 
 /* 
